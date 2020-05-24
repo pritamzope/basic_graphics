@@ -16,4 +16,4 @@
 
 ## General Curves
 <br/>
-<img src="https://raw.githubusercontent.com/pritamzope/basic_graphics/master/Curves/images/general_bezier_curves.png"/>
+<img src="https://raw.githubusercontent.com/pritamzope/basic_graphics/master/Curves/images/general_bezier_curve.png"/>
