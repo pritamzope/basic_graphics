@@ -18,19 +18,21 @@ def reshape(_w, _h):
 
 
 def circle(x, y, radius):
-    glBegin(GL_POINTS)
-    for i in range(0, 360):
-        _x = x + radius * math.cos(i)
-        _y = y + radius * math.sin(i)
+    glBegin(GL_LINE_STRIP)
+    for i in range(0, 630):
+        t = 0.01 * i
+        _x = x + radius * math.cos(t)
+        _y = y + radius * math.sin(t)
         glVertex2f(_x, _y)
     glEnd()
 
 
 def ellipse(x, y, radius, x_width, y_width):
-    glBegin(GL_POINTS)
-    for i in range(0, 360):
-        _x = x + (x_width/2) * radius * math.cos(i)
-        _y = y + (y_width/2) * radius * math.sin(i)
+    glBegin(GL_LINE_STRIP)
+    for i in range(0, 630):
+        t = 0.01 * i
+        _x = x + (x_width/2) * radius * math.cos(t)
+        _y = y + (y_width/2) * radius * math.sin(t)
         glVertex2f(_x, _y)
     glEnd()
 
@@ -40,13 +42,14 @@ def display():
     glTranslatef(0.0, 0.0, 0.0)
     glColor3f(0.0, 1.0, 1.0)
 
-    for i in range(0, 5):
+    for i in range(0, 2):
         x = random.uniform(-5.0, 5.0)
         y = random.uniform(-5.0, 5.0)
         radius = random.uniform(0, 4.0)
         circle(x, y, radius)
 
-    for i in range(0, 5):
+    glColor3f(1.0, 0.0, 1.0)
+    for i in range(0, 2):
         x = random.uniform(-5.0, 5.0)
         y = random.uniform(-5.0, 5.0)
         radius = random.uniform(0, 4.0)
@@ -60,7 +63,7 @@ glutInit()
 glutInitDisplayMode(GLUT_RGBA)
 glutInitWindowSize(500, 500)
 glutInitWindowPosition(100, 0)
-wind = glutCreateWindow("Transformation Of Points")
+wind = glutCreateWindow("Circles & Ellipses")
 glutDisplayFunc(display)
 glutReshapeFunc(reshape)
 gluOrtho2D(0.0,250.0,0.0,300.0)
